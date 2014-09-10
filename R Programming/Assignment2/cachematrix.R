@@ -5,11 +5,11 @@
 
 makeCacheMatrix <- function(x = matrix()) {
     if (is.matrix(x) != T){
-        message("invalid input")
+        message("Invalid input")
     }
     else{
-        cx <<- x
-        cinvx <<- solve(x)
+        newx <<- x
+        invx <<- solve(x)
     }
 }
 
@@ -21,11 +21,11 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
     if (is.matrix(x) != T){
-        print("invalid input")
+        print("Invalid input")
     }
-    else if (identical(x,cx) & class(cinvx)== "matrix"){
+    else if (identical(x,newx) & class(invx)== "matrix"){
         message("cache exists")
-        return(cinvx)
+        return(invx)
     }
     else{
         message("cache does not exists")
